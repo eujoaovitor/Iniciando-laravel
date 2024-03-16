@@ -11,7 +11,11 @@ class ClienteController extends Controller
     // LISTAGEM DE CLIENTES    
     public function index()
     {
-        return view("cliente/index");
+        // BUSCAR INFORMAÇÃO NO BD
+        $cliente = Cliente::orderByDesc('id')->get();
+
+        // RETORNA O LAYOUT(VIEW)
+        return view("cliente/index", ['cliente' => $cliente]);
     }
 
     // FORMULARIO DE CADASTRO DE CLIENTE

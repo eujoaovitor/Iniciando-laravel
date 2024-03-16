@@ -359,33 +359,22 @@
             </tr>
           </thead>
           <tbody>
+
+            @forelse ($cliente as $clienteSite)
             <tr>
-              <td>7</td>
-              <td>Maykon Silveira</td>
-              <td>7777</td>
-              <td>(41)7777-7777</td>
-              <td>cursos@maykonsilveria.com.br</td>
+              <td>{{ $clienteSite->id }}</td>
+              <td>{{ $clienteSite->nome }}</td>
+              <td>{{ $clienteSite->cpf }}</td>
+              <td>{{ $clienteSite->fone }}</td>
+              <td>{{ $clienteSite->email }}</td>
               <td><a href="" class="btn btn-primary">Editar</a></td>
               <td><a href="" class="btn btn-danger">Excluir</a></td>
             </tr>
+            @empty
             <tr>
-              <td>7</td>
-              <td>Maykon Silveira</td>
-              <td>7777</td>
-              <td>(41)7777-7777</td>
-              <td>cursos@maykonsilveria.com.br</td>
-              <td><a href="" class="btn btn-primary">Editar</a></td>
-              <td><a href="" class="btn btn-danger">Excluir</a></td>
+              <td>Nada encotrado</td>
             </tr>
-            <tr>
-              <td>7</td>
-              <td>Maykon Silveira</td>
-              <td>7777</td>
-              <td>(41)7777-7777</td>
-              <td>cursos@maykonsilveria.com.br</td>
-              <td><a href="" class="btn btn-primary">Editar</a></td>
-              <td><a href="" class="btn btn-danger">Excluir</a></td>
-            </tr>
+            @endforelse
             
           </tbody>
         </table>
