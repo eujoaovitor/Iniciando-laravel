@@ -42,4 +42,16 @@ class ClienteController extends Controller
         //REDIRECIONAMENTO
         return redirect()->route('cliente.mostrar')->with('sucesso', 'Cliente cadastrado com sucesso!!');
     }
+
+    // VISUALIZAR OS DADOS A PARTIR DO ID
+    public function editar(Cliente $cliente)
+    {
+        return view('cliente/editar', ['cliente' => $cliente]);
+    }
+
+    // ATUALIZAR OS DADOS DO BD A PARTIR DO ID
+    public function update()
+    {
+        return;
+    }
 }

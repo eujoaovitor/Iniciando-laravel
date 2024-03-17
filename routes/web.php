@@ -19,3 +19,9 @@ Route::get('/mostrar-cliente', [ClienteController::class, 'mostrar'])->name('cli
 
 // SALVA NO BANCO DE DADOS
 Route::post('/store-cliente', [ClienteController::class, 'store'])->name('cliente.store');
+
+// VISUALIZAR DADOS DE ACORDO COM ID
+Route::get('/editar-cliente/{cliente}', [ClienteController::class, 'editar'])->name('cliente.editar');
+
+// ATUALIZAR DADOS DE ACORDO COM ID NO BD
+Route::put('/update-cliente/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
