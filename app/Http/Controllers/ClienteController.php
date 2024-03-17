@@ -67,4 +67,13 @@ class ClienteController extends Controller
         //REDIRECIONAMENTO
         return redirect()->route('cliente.index')->with('sucesso', 'Cliente editado com sucesso!!');
     }
+
+    // DELETAR OS DADOS DO BD A PARTIR DO ID
+    public function delete(Cliente $cliente)
+    {
+        $cliente->delete();
+
+        //REDIRECIONAMENTO
+        return redirect()->route('cliente.index')->with('sucesso', 'Cliente excluido com sucesso!!');
+    }
 }

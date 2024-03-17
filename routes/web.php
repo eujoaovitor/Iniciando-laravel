@@ -25,3 +25,6 @@ Route::get('/editar-cliente/{cliente}', [ClienteController::class, 'editar'])->n
 
 // ATUALIZAR DADOS DE ACORDO COM ID NO BD
 Route::put('/update-cliente/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
+
+// EXCLUI DADOS DE ACORDO COM ID NO BD
+Route::delete('/delete-cliente/{cliente}', [ClienteController::class, 'delete'])->name('cliente.delete');
