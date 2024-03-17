@@ -50,8 +50,21 @@ class ClienteController extends Controller
     }
 
     // ATUALIZAR OS DADOS DO BD A PARTIR DO ID
-    public function update()
+    public function update(ClienteResquest $resquest, Cliente $cliente)
     {
-        return;
+        //VALIDAR OS CAMPOS
+        $resquest->validated();
+
+        // EDITAR OS DADOS NO BD
+        $cliente->update([
+            'nome' => $resquest->nome,
+            'cpf' => $resquest->cpf,
+            'email' => $resquest->email,
+            'fone' => $resquest->fone,
+            'nascimento' => $resquest->nascimento
+        ]);
+
+        //REDIRECIONAMENTO
+        return redirect()->route('cliente.index')->with('sucesso', 'Cliente editado com sucesso!!');
     }
 }
