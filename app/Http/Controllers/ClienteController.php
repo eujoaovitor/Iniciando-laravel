@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
     // LISTAGEM DE CLIENTES    
-    public function index()
+    public function index(Request $request)
     {
+        // BUSCAR A PARTI DO TERMO DE PESQUISA
+        $termoPesquisa = $request->input('pesquisa');
+
         // BUSCAR INFORMAÇÃO NO BD
-        $cliente = Cliente::orderByDesc('id')->get();
+        $cliente = Cliente::where('nome', 'like', '%' .$termoPesquisa . '%')
+            ->orWhere('cpf', 'like', '%' . $termoPesquisa . '%')
+            ->orWhere('email', 'like', '%' . $termoPesquisa . '%')
+            ->orWhere('fone', 'like', '%' . $termoPesquisa . '%')
+            ->orderByDesc('id')
+            ->get();
 
         // RETORNA O LAYOUT(VIEW)
         return view("cliente/index", ['cliente' => $cliente]);
