@@ -425,7 +425,7 @@
                         <form action="{{ route('cliente.index') }}">
                             <div class="row">
                               <div class="col-md-11 col-sm-12">
-                                  <input type="text" class="form-control" name="pesquisa" placeholder="Pesquise....">
+                                  <input type="text" class="form-control" name="pesquisa" placeholder="Pesquise...." value="{{ $termoPesquisa }}">
                               </div>
                               <div class="col-md-1">
                                   <button type="submit" class="btn btn-primary">Buscar</button>
@@ -482,6 +482,7 @@
 
                         </tbody>
                     </table>
+                    {{ $cliente->onEachSide(0)->links() }}
                 </div>
             </main>
         </div>

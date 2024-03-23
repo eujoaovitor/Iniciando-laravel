@@ -20,10 +20,10 @@ class ClienteController extends Controller
             ->orWhere('email', 'like', '%' . $termoPesquisa . '%')
             ->orWhere('fone', 'like', '%' . $termoPesquisa . '%')
             ->orderByDesc('id')
-            ->get();
+            ->paginate(10)->withQueryString();
 
         // RETORNA O LAYOUT(VIEW)
-        return view("cliente/index", ['cliente' => $cliente]);
+        return view("cliente/index", ['cliente' => $cliente, 'termoPesquisa' => $termoPesquisa]);
     }
 
     // FORMULARIO DE CADASTRO DE CLIENTE
